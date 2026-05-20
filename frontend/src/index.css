@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-bg: #f8fafc;
+    --color-surface: #ffffff;
+    --color-border: #e2e8f0;
+    --color-text: #0f172a;
+    --color-muted: #64748b;
+  }
+
+  .dark {
+    --color-bg: #0a0f1e;
+    --color-surface: #111827;
+    --color-border: #1f2937;
+    --color-text: #f1f5f9;
+    --color-muted: #94a3b8;
+  }
+
+  html {
+    @apply antialiased;
+  }
+
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-family: 'DM Sans', system-ui, sans-serif;
+  }
+
+  * {
+    @apply transition-colors duration-150;
+  }
+
+  input, select, textarea {
+    @apply outline-none;
+  }
+}
+
+@layer components {
+  .card {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    @apply rounded-xl shadow-sm;
+  }
+
+  .input-base {
+    background-color: var(--color-bg);
+    border: 1px solid var(--color-border);
+    color: var(--color-text);
+    @apply rounded-lg px-3 py-2 text-sm w-full focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-all;
+  }
+
+  .btn-primary {
+    @apply bg-brand-600 hover:bg-brand-700 text-white font-medium px-4 py-2 rounded-lg text-sm transition-all active:scale-95 disabled:opacity-60 disabled:cursor-not-allowed;
+  }
+
+  .btn-ghost {
+    @apply hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-600 dark:text-gray-400 font-medium px-3 py-2 rounded-lg text-sm transition-all;
+  }
+
+  .badge {
+    @apply inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium;
+  }
+}
